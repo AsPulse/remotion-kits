@@ -66,6 +66,9 @@ typings/
 *.tgz
 
 # Yarn Integrity file
+.yarn/*
+!.yarn/releases/
+!.yarn/plugins/
 .yarn-integrity
 
 # dotenv environment variables file

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "timezone": "Asia/Tokyo",
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 20,
+  "labels": ["renovate"],
+  "automergeStrategy": "squash",
+  "packageRules": [
+    {
+      "groupName": "linters",
+      "extends": ["packages:linters"],
+      "packagePatterns": ["^@typescript-eslint/"]
+    },
+    {
+      "matchPackagePatterns": [
+        "^@types/"
+      ],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "minor-types"
+    },
+    {
+      "groupName": "nodejs",
+      "matchPackageNames": ["node", "@types/node"],
+      "allowedVersions": "/^[0-9]+[24680]\\.[0-9]+\\.0$/"
+    }
+  ],
+  "automerge": false,
+  "major": {
+    "stabilityDays": 7
+  },
+  "minor": {
+    "stabilityDays": 3
+  },
+  "patch": {
+    "stabilityDays": 2
+  }
+}
